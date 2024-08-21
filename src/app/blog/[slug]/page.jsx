@@ -4,9 +4,20 @@ import { Suspense } from "react";
 import PostUser from "@/components/postUser/postUser";
 import { getPost } from "@/lib/data";
 
+
+export const generateMetadata = async ({params}) => {
+	const {slug} = params;
+	const post = await getPost(slug);
+	return {
+		title: post.title,
+		description: post.desc,
+	};
+};
+
 const getData = async (slug) => {
 	// revalidate: 3600  3600秒后刷新缓存
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, {next:{revalidate:3600}});
+  // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, {next:{revalidate:3600}});
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {next:{revalidate:3600}});
   if (!res.ok) {
     throw new Error("Something went wrong");
   }
@@ -14,9 +25,9 @@ const getData = async (slug) => {
 };
 const SingleBlog = async ({params}) => {
 		const {slug} = params;
-		// const post = await getData(slug);
+		const post = await getData(slug);
 		// console.log('post',post);
-		const post = await getPost(slug);
+		// const post = await getPost(slug);
     return (
     <div className={styles.container}>
 			<div className={styles.imgContainer}>

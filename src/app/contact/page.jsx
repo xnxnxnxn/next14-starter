@@ -2,6 +2,9 @@
 import Image from "next/image";
 import styles from "./contact.module.css";
 import { useEffect,useState } from "react";
+
+
+
 const ContactPage = () => {
 	const [isClient, setIsClient] = useState(false)
 	const a = Math.random();
