@@ -3,15 +3,15 @@ import styles from "./postUser.module.css";
 import Image from "next/image";
 
 // FETCH DATA WITH AN API
-const getData = async (userId) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}` ,{cache:"no-store"});
+// const getData = async (userId) => {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}` ,{cache:"no-store"});
 
-  if (!res.ok) {
-    throw new Error("Something went wrong");
-  }
+//   if (!res.ok) {
+//     throw new Error("Something went wrong");
+//   }
 
-  return res.json();
-};
+//   return res.json();
+// };
 
 const PostUser = async ({ userId }) => {
   // FETCH DATA WITH AN API

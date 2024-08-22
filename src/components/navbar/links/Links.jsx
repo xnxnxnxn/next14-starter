@@ -13,7 +13,6 @@ const links = [
 ]
 const Links = ({session}) => {
 	const [open,setOpen] = useState(false);
-	const isAdmin = true;
   return (
 	<div className={styles.container}>
 		<div className={styles.links}>
@@ -33,19 +32,19 @@ const Links = ({session}) => {
 				)
 			}
 		</div>
-		 <Image
-        className={styles.menuButton}
-        src="/menu.png"
-        alt=""
-        width={30}
-        height={30}
-        onClick={() => setOpen((prev) => !prev)}
-      />
+		<Image
+			className={styles.menuButton}
+			src="/menu.png"
+			alt=""
+			width={30}
+			height={30}
+			onClick={() => setOpen((prev) => !prev)}
+		/>
 		{
 			open && <div className={styles.mobileLinks}>
-				   {links.map((link) => (
-            <NavLink item={link} key={link.title} />
-          ))}
+					{links.map((link) => (
+					<NavLink item={link} key={link.title} />
+				))}
 			</div>
 		}
 	</div>);

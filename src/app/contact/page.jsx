@@ -7,11 +7,12 @@ import { useEffect,useState } from "react";
 
 const ContactPage = () => {
 	const [isClient, setIsClient] = useState(false)
-	const a = Math.random();
+	// const a = Math.random();
 	useEffect(() => {
 		setIsClient(true);
 		
-		console.log(a);
+		// console.log(a);
+		// console.log(isClient);
 	},[]);
 
 	console.log('在后台打印');
@@ -20,8 +21,9 @@ const ContactPage = () => {
         <Image src="/contact.png" alt="" fill className={styles.img} />
       </div>
       <div className={styles.formContainer}>
-				{isClient && a}
-				<div suppressHydrationWarning>{a}</div>
+				{isClient}
+				{/* {isClient && a} */}
+				{/* <div suppressHydrationWarning>{a}</div> */}
         {/* <HydrationTestNoSSR/> */}
         {/* <div suppressHydrationWarning>{a}</div> */}
         <form action="" className={styles.form}>
